@@ -1,0 +1,55 @@
+# Conky, a system monitor, based on torsmo
+#
+
+alignment bottom_middle
+background yes
+border_width 1
+border_inner_margin 0
+cpu_avg_samples 2
+default_color white
+default_outline_color white
+default_shade_color white
+draw_borders yes
+draw_graph_borders yes
+draw_outline no
+draw_shades no
+use_xft yes
+font Terminus:size=9
+gap_x 2
+gap_y 2
+maximum_width 1595
+minimum_size 5 5
+net_avg_samples 2
+no_buffers yes
+out_to_console no
+out_to_stderr no
+extra_newline no
+own_window no
+own_window_class Conky
+own_window_type desktop
+stippled_borders 0
+update_interval 1.0
+update_interval_on_battery 3.0
+uppercase no
+use_spacer none
+show_graph_scale no
+show_graph_range no
+double_buffer yes
+
+TEXT
+${scroll 50 4 $mpd_smart} \
+${mpd_bar 9,60} $mpd_elapsed/$mpd_length \
+S:${color green}${if_match "${mpd_random}"=="Off"}${color red}${endif}$mpd_random$color \
+R:${color green}${if_match "${mpd_repeat}"=="Off"}${color red}${endif}$mpd_repeat$color |\
+${color red} ${freq_g}GHz$color |\
+${color purple} RAM $mem$color |\
+${color magenta} Swap $swap$color |\
+${color brown} CPU Total:${color red} ${cpu}% \
+${color brown}1:${color yellow} ${cpu cpu0}% \
+${color brown}2:${color yellow} ${cpu cpu1}% \
+${color brown}3:${color green} ${cpu cpu2}% \
+${color brown}4:${color green} ${cpu cpu3}%$color |\
+${color blue} ${fs_free /} - ${fs_free_perc /}%$color |\
+${color orange} Up: ${upspeedf wlan0}kb/s - Down: ${downspeedf wlan0}kb/s$color |\
+${color brown} ${battery_short BAT1} ${battery_time BAT1}$color |\
+${color tan} ${time %a %b %d %H:%M}

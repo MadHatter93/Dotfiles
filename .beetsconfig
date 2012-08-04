@@ -1,0 +1,26 @@
+[beets]
+directory: /home/bill/Music
+library: /home/bill/Music/.beetsmusic.blb
+import_copy: yes
+import_write: yes
+import_resume: ask
+import_art: yes
+import_quiet_fallback: skip
+import_timid: no
+import_delete: no
+art_filename: Cover
+threaded: no
+color: yes
+plugins: embedart lastgenre scrub rdm mbcollection fetchart
+
+[paths]
+default: $albumartist/$year - $album/$artist - $track - $title
+comp: $albumartist/$year - $album/$artist - $track - $title
+soundtrack: $albumartist/$year - $album/$artist - $track - $title
+
+[lastgenre]
+canonical:
+
+[musicbrainz]
+user: Mad_Hatter93
+pass: Blackshadow93
